@@ -2,7 +2,9 @@ import random
 
 player_wins = 0
 comp_wins = 0
-    
+
+VALID_CHOICES = ['rock','paper','scissors']
+
 player_win_conditions = {
     ('rock','scissors'): 'You win, I guessed scissors',
     ('paper','rock'): 'You win, I guessed rock',
@@ -10,10 +12,9 @@ player_win_conditions = {
 }
 print(f'Rock Paper Scissors- best 3 out of 5!')  
 while player_wins < 3 and comp_wins < 3:
-    comp_guesses = ['rock','paper','scissors']
-    comp_guess = random.choice(comp_guesses)
+    comp_guess = random.choice(VALID_CHOICES)
     player_choice = input ('rock, paper, scissors- shoot!').strip().lower()
-    if player_choice not in ('rock','paper','scissors'):
+    if player_choice not in VALID_CHOICES:
         print(f'Hey! guess rock, paper, or scissors')
     elif player_choice == comp_guess:
         print(f'We tied, I guessed {comp_guess}- neither of us gets a point')
